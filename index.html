@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -8,6 +8,14 @@
   </head>
 
   <body>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#specials">Specials</a>
+      <a href="#visit">Visit Us</a>
+      <a href="#testimonials">Testimonials</a>
+
+    </nav>
+
     <header>
       <div class="header-content">
         <h1><span class="accent">Fran's</span> Flowers</h1>
@@ -24,7 +32,7 @@
     </div>
 
     <main>
-      <section class="about-us">
+      <section id="about" class="about-us">
         <h2><span class="accent">About</span> Us</h2>
         <p>
           Fran's Flowers was founded in 1995 by Francine Miller to share joy,
@@ -37,7 +45,7 @@
         <p>Thank you for helping us grow kindness one flower at a time.</p>
       </section>
 
-      <section class="specials">
+      <section id="specials" class="specials">
         <h2><span class="accent">Weekly</span> Specials</h2>
         <div class="specials-list">
           <article class="special-offer">
@@ -62,8 +70,40 @@
           </article>
         </div>
       </section>
+      <section id="testimonials" class="testimonials">
+        <h2><span class="accent">Customer</span> Testimonials</h2>
 
-      <section class="visit-us">
+        <div class="testimonial-list">
+          <blockquote class="testimonial-card">
+            <p>
+              "Fran's Flowers made the perfect bouquet for my mom's birthday.
+              Beautiful, fresh, and affordable."
+            </p>
+            <cite>- Maria G.</cite>
+          </blockquote>
+
+          <blockquote class="testimonial-card">
+            <p>
+              "The shop has such a warm vibe, and the weekly specials are always
+              worth checking out."
+            </p>
+            <cite>- James R.</cite>
+          </blockquote>
+        </div>
+      </section>
+      <section id="seasonal-picks" class="seasonal-picks">
+      <h2><span class="accent">Seasonal</span> Picks</h2>
+
+      <article class="seasonal-card">
+        <img src="img/sunflowers.png" alt="Seasonal sunflower bouquet" />
+        <div>
+          <h3>Golden Sunflower Bouquet</h3>
+          <p>A bright, cheerful bouquet filled with warm seasonal color.</p>
+          <p class="fun-detail">Best for birthdays - only here 'til October.</p>
+        </div>
+      </article>
+    </section>
+      <section id="visit" class="visit-us">
         <h2><span class="accent">Visit</span> Us</h2>
         <div class="contact-info">
           <p>Come in and say hi!</p>
@@ -81,12 +121,31 @@
         ></iframe>
       </section>
     </main>
+   <footer>
+  <div class="footer-content">
 
-    <footer>
-      <div class="footer-content">
-        <p>&copy; 2025 Fran's Flowers LLC.</p>
-        <p>Brightening lives one flower at a time</p>
-      </div>
-    </footer>
+    <h3>Fran's Flowers</h3>
+    <p>Brightening San Francisco since 1995.</p>
+
+    <nav class="footer-nav" aria-label="Footer Navigation">
+      <a href="#about">About</a>
+      <a href="#specials">Specials</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#visit">Visit Us</a>
+      <a href="about.html">About Fran</a>
+    </nav>
+
+    <div class="social-icons">
+      <a href="https://instagram.com" target="_blank">📸 Instagram</a>
+      <a href="https://facebook.com" target="_blank">👍 Facebook</a>
+      <a href="https://pinterest.com" target="_blank">📌 Pinterest</a>
+    </div>
+
+    <p class="footer-copy">
+      © 2025 Fran's Flowers LLC • San Francisco, California
+    </p>
+
+  </div>
+</footer>
   </body>
 </html>

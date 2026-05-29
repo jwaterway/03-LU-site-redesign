@@ -4,7 +4,6 @@
   --ink: #000000;
   --paper: #fffdf5;
   --paper-2: #fff7e5;
-  --leaf: #3f6b4f;
   --rose: #af4857;
   --line: #1f1f1f;
   --soft-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
@@ -14,41 +13,48 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   color: var(--ink);
-  text-align: center;
-  background:
-    radial-gradient(circle at 10% 10%, #ffe8c3 0%, transparent 32%),
-    radial-gradient(circle at 85% 20%, #ffd6d6 0%, transparent 30%),
-    linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
+  background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%);
   font-family: "Manrope", "Segoe UI", sans-serif;
+  font-size: 18px;
   line-height: 1.6;
+  text-align: center;
 }
 
 h1,
 h2,
 h3 {
   margin-top: 0;
+  color: var(--ink);
   font-family: "Cormorant Garamond", Georgia, serif;
   letter-spacing: 0.02em;
-  color: var(--ink);
 }
 
-p,
 a,
+p,
 address,
 span {
   color: var(--ink);
 }
 
 a {
+  text-underline-offset: 3px;
   text-decoration-thickness: 2px;
-  text-underline-offset: 2px;
+}
+
+a:focus-visible {
+  outline: 4px solid var(--ink);
+  outline-offset: 4px;
 }
 
 header {
-  padding: 56px 20px 28px;
+  padding: 34px 20px 28px;
 }
 
 .header-content {
@@ -57,19 +63,19 @@ header {
   padding: 24px;
   border: 2px solid var(--line);
   border-radius: 20px;
-  background: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.8);
   box-shadow: var(--soft-shadow);
 }
 
 h1 {
-  font-size: clamp(2.3rem, 6vw, 4.3rem);
   margin-bottom: 6px;
+  font-size: clamp(2.3rem, 6vw, 4.3rem);
 }
 
 .accent {
+  padding: 0 8px;
   color: var(--ink);
   background: linear-gradient(120deg, #ffd58a 0%, #ffb8b8 100%);
-  padding: 0 8px;
   border-radius: 8px;
 }
 
@@ -79,20 +85,42 @@ h1 {
   font-weight: 600;
 }
 
-#hero-container {
-  width: min(1000px, 92%);
-  margin: 0 auto 40px;
-  border: 2px solid var(--line);
-  border-radius: 24px;
-  overflow: hidden;
-  box-shadow: var(--soft-shadow);
-  background: #fff;
+.site-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  margin: 0;
+  padding: 12px 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  background: rgba(255, 253, 245, 0.95);
+  border-bottom: 2px solid var(--line);
 }
 
-.hero-img {
-  width: 100%;
-  display: block;
-  object-fit: cover;
+.site-nav a {
+  min-width: 110px;
+  padding: 8px 14px;
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.site-nav a:hover,
+.site-nav a:focus-visible {
+  background: #ffecc9;
+}
+
+section {
+  scroll-margin-top: 90px;
+  padding: 28px;
+  border: 2px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--soft-shadow);
 }
 
 main {
@@ -102,12 +130,20 @@ main {
   gap: 28px;
 }
 
-section {
-  background: rgba(255, 255, 255, 0.88);
+#hero-container {
+  width: min(1000px, 92%);
+  margin: 0 auto 40px;
   border: 2px solid var(--line);
-  border-radius: 20px;
-  padding: 28px;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #fff;
   box-shadow: var(--soft-shadow);
+}
+
+.hero-img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
 }
 
 .about-us p {
@@ -116,17 +152,26 @@ section {
   margin-right: auto;
 }
 
-.specials-list {
+.specials-list,
+.testimonial-list {
   margin-top: 20px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 18px;
 }
 
-.special-offer {
+.specials-list {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.testimonial-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.special-offer,
+.testimonial-card {
+  padding: 16px;
   border: 2px solid var(--line);
   border-radius: 14px;
-  padding: 16px;
   background: #fff;
 }
 
@@ -134,8 +179,8 @@ section {
   width: 100%;
   height: 180px;
   object-fit: cover;
-  border-radius: 10px;
   border: 1px solid var(--line);
+  border-radius: 10px;
 }
 
 .special-offer h3 {
@@ -151,8 +196,44 @@ section {
 
 .price-was {
   margin: 0;
-  opacity: 0.8;
+  color: #444;
   text-decoration: line-through;
+}
+
+.testimonial-card {
+  margin: 0;
+  text-align: left;
+}
+
+.testimonial-card p {
+  margin-top: 0;
+  font-weight: 500;
+}
+
+.testimonial-card cite {
+  display: block;
+  margin-top: 12px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.seasonal-card {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 20px;
+  align-items: center;
+  text-align: left;
+}
+
+.seasonal-card img {
+  width: 100%;
+  border: 2px solid var(--line);
+  border-radius: 14px;
+}
+
+.fun-detail {
+  color: var(--rose);
+  font-weight: 700;
 }
 
 .contact-info {
@@ -161,9 +242,9 @@ section {
 
 .address-block,
 .phone-block {
+  max-width: 520px;
   margin: 10px auto;
   padding: 12px;
-  max-width: 520px;
   border: 1px solid var(--line);
   border-radius: 10px;
   background: #fff;
@@ -189,23 +270,69 @@ footer {
 .footer-content {
   width: min(900px, 92%);
   margin: 0 auto;
-  padding: 18px;
+  padding: 24px;
   border: 2px solid var(--line);
   border-radius: 14px;
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--soft-shadow);
 }
 
-.footer-content p {
-  margin: 4px 0;
+.footer-nav,
+.social-icons {
+  margin-top: 18px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footer-nav a,
+.social-icons a {
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.social-icons a {
+  border: 2px solid var(--line);
+  background: #fff;
+}
+
+.footer-nav a:hover,
+.social-icons a:hover {
+  background: #ffecc9;
+}
+
+.footer-copy {
+  margin-top: 18px;
+  color: #444;
+  font-size: 0.95rem;
 }
 
 @media (max-width: 900px) {
-  .specials-list {
-    grid-template-columns: 1fr;
+  .site-nav {
+    gap: 10px;
+    padding: 10px 14px;
+  }
+
+  .site-nav a {
+    flex: 1 1 140px;
   }
 
   section {
     padding: 22px;
+  }
+
+  .specials-list,
+  .testimonial-list,
+  .seasonal-card {
+    grid-template-columns: 1fr;
+  }
+
+  .testimonial-card,
+  .seasonal-card {
+    text-align: center;
   }
 
   .special-offer img {
